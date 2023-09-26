@@ -1,9 +1,14 @@
 //const all cards even if you only use 2 or 4 of them at first
 const allCards = [
-   'a',
-   'a',
-// 'K',
-// 'Potassium',
+   {
+'name': 'K',
+'subName': 'K',
+   },
+   {
+'name': 'K',
+'subName': 'Potassium'
+   },
+  
 // 'Fe',
 // 'Iron',
 // 'Na',
