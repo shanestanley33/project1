@@ -29,10 +29,16 @@ const allCards = [
 // 'Lead',
 ]
 
-// state variables
+// state variables and constants
+const INITIAL_SCORE = 0;
+const WINNING_SCORE = 1;
+const START_BUTTON_ID = "start-button";
+const GAME_BOARD_ID = "game-board";
+const SCORE_DISPLAY_ID = "score";
 let score;
 let cardsFlipped;
 let countdown;
+
 // Cached Elements
 //get start button by id and assign to a variable called startButton
 const startButton = document.getElementById(START_BUTTON_ID);
@@ -52,21 +58,67 @@ startButton.addEventListener("click", initializeGame);
 // Functions
 //define initialize function 
 function initializeGame(){
-score = 0;
-flippedCards = [];
+score = INITIAL_SCORE;
+cardsFlipped = [];
 startButton.disabled = true; 
 startButton.style.display = "none"
 gameBoard.innerHTML = ""
 //call a render function
 render();
 }
+// Invoke shuffle function and store in variable
+// Randomize array in-place using Durstenfeld shuffle algorithm
+function shuffleArray(array) {
+   for (let i = array.length - 1; i > 0; i--) {
+       let j = Math.floor(Math.random() * (i + 1));
+       let temp = array[i];
+       array[i] = array[j];
+       array[j] = temp;
+   }
+}
 
 //define render function
-function render() {
+function render(){
+   console.log("I'm in the render function")
+   // Set the score display to the current score
+   scoreDisplay.innerText = `Score: ${score}`; 
+   // Create card 
+   createCards();
+};
 
-}
-//set the scoreDisplay to the current score variable
-//create cards renderCards()
+
+// function timer() {
+//    // Update the count every 1 second
+//    time = setInterval(function () {
+//      seconds--;
+//      if (seconds === 0) {
+//        //game over display;
+//        seconds = 250;
+//      }
+//    })
+// };
+
+//create cards renderCards();
+
+// function createCardPair(){
+//    // Remove all existing tiles on the game board
+//    gameBoard.innerHTML = "";
+//    // Create variables for tile1 and tile2
+//    allCards[0];
+//    allCards[1];   
+//    // Do some code while a certain condition is true
+//    do {
+//        // Call a helper function to create a game tile and assign to tile1
+//        allCards[0]
+//        = createGameCard();
+//        // Call a helper function to create a game tile and assign to tile2
+//        allCards[1] = createGameCard();
+//        // While the innerText of tile 1 is not equal to the innerText of tile 2
+//    } while (tile1.innerText === tile2.innerText);
+//    // Append the new tiles to the game board
+//    gameBoard.append(tile1, tile2)
+// };
+
 
 //define a renderCards function 
 //loop over the constants card array 
