@@ -45,12 +45,25 @@ const startButton = document.getElementById(START_BUTTON_ID);
 //get game board by id and assign to a variable called gameBoard
 const gameBoard = document.getElementById(GAME_BOARD_ID);
 //get the score by id and (You need to make a div with id of score)
-const scoreDisplay = document.getElementById(SCORE_DISPLAY_ID);
+//const scoreDisplay = document.getElementById(SCORE_DISPLAY_ID);
 
 
 //Event Listeners
 //attach click event listener to startButton and called initialize function 
 startButton.addEventListener("click", initializeGame);
+
+const Potassium = document.getElementById('Potassium')
+const K = document.getElementById('K')
+K.addEventListener('click', handleMatch)
+Potassium.addEventListener('click', handleMatch)
+
+//console.log(K)
+function handleMatch(){
+   console.log('you clicked')
+}
+
+
+
 // clicking a card
 
 // clicking restart/retry/replay
@@ -81,9 +94,10 @@ function shuffleArray(array) {
 function render(){
    console.log("I'm in the render function")
    // Set the score display to the current score
-   scoreDisplay.innerText = `Score: ${score}`; 
+   
+   //scoreDisplay.innerText = `Score: ${score}`; 
    // Create card 
-   createCards();
+   ////createCards();
 };
 
 
@@ -98,7 +112,7 @@ function render(){
 //    })
 // };
 
-//create cards renderCards();
+//display cards renderCards();
 
 // function createCardPair(){
 //    // Remove all existing tiles on the game board
