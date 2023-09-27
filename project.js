@@ -1,14 +1,17 @@
 //const all cards even if you only use 2 or 4 of them at first
 const allCards = [
    {
-'name': 'K',
-'subName': 'K',
+   'name': 'K'
    },
    {
-'name': 'K',
-'subName': 'Potassium'
+   'name': 'K'
    },
-  
+  {
+   'name': 'Fe'
+  },
+  {
+   'name': 'Fe'
+  },
 // 'Fe',
 // 'Iron',
 // 'Na',
@@ -31,12 +34,13 @@ const allCards = [
 
 // state variables and constants
 const INITIAL_SCORE = 0;
-const WINNING_SCORE = 1;
+const WINNING_SCORE = allCards.length / 2;
 const START_BUTTON_ID = "start-button";
 const GAME_BOARD_ID = "game-board";
 const SCORE_DISPLAY_ID = "score";
 let score;
 let cardsFlipped;
+let cardsMatched;
 let countdown;
 
 // Cached Elements
@@ -51,22 +55,49 @@ const gameBoard = document.getElementById(GAME_BOARD_ID);
 //Event Listeners
 //attach click event listener to startButton and called initialize function 
 startButton.addEventListener("click", initializeGame);
-
-const Potassium = document.getElementById('Potassium')
-const K = document.getElementById('K')
-K.addEventListener('click', handleMatch)
-Potassium.addEventListener('click', handleMatch)
-
+gameBoard.addEventListener('click', handleCardClick)
 //console.log(K)
-function handleMatch(){
-   console.log('you clicked')
-}
-
-
 
 // clicking a card
+function handleCardClick(event){
+   cardsFlipped.push(event.target)
+   console.log(cardsFlipped[0].innerText)
+   if (cardsFlipped.length === 2){
+       checkmatched();
+      
+   }
+   checkWinner();
+}
+
+function checkmatched() {
+   if (cardsFlipped[0].innerText === cardsFlipped[1].innerText) {
+   // cardsMatched++;
+      score++
+      cardsFlipped.forEach(card => {
+         console.log(card)
+         card.style.backgroundColor = 'red';
+      });
+      console.log('its a match')
+      //disable those card from being used again?
+   } else {
+   console.log('no match')
+   }
+
+   cardsFlipped = []
+
+   console.log('next move')
+}
+
+//check for win
+function checkWinner() {
+   if (score === WINNING_SCORE) {
+      alert("you have won the game")
+
+   }
+}
 
 // clicking restart/retry/replay
+
 
 // Functions
 //define initialize function 
@@ -76,9 +107,22 @@ cardsFlipped = [];
 startButton.disabled = true; 
 startButton.style.display = "none"
 gameBoard.innerHTML = ""
+//render cards
+renderCards();
 //call a render function
 render();
+};
+
+function renderCards() {
+   allCards.forEach(card => {
+      let cardEl = document.createElement('div')
+      cardEl.innerText = card.name
+   gameBoard.append(cardEl)
+   })
 }
+
+
+
 // Invoke shuffle function and store in variable
 // Randomize array in-place using Durstenfeld shuffle algorithm
 function shuffleArray(array) {
@@ -112,26 +156,27 @@ function render(){
 //    })
 // };
 
-//display cards renderCards();
 
-// function createCardPair(){
-//    // Remove all existing tiles on the game board
-//    gameBoard.innerHTML = "";
-//    // Create variables for tile1 and tile2
-//    allCards[0];
-//    allCards[1];   
-//    // Do some code while a certain condition is true
-//    do {
-//        // Call a helper function to create a game tile and assign to tile1
-//        allCards[0]
-//        = createGameCard();
-//        // Call a helper function to create a game tile and assign to tile2
-//        allCards[1] = createGameCard();
-//        // While the innerText of tile 1 is not equal to the innerText of tile 2
-//    } while (tile1.innerText === tile2.innerText);
-//    // Append the new tiles to the game board
-//    gameBoard.append(tile1, tile2)
-// };
+
+
+function resetEverything() {
+  
+   // Reset moves count and reset its inner HTML
+   moves = 0;
+   movesCount.innerHTML = 0;
+   // Clear both arrays that hold the flipped and matched cards
+   cardsMatched = [];
+   cardsFlipped = [];
+   // Clear the deck
+   removeCard();
+}
+
+// function movesCounter() {
+//    // Update the html for the moves counter
+//    movesCount.innerHTML++;
+//    // Keep track of the number of moves for every pair checked
+//    moves++;
+//  }
 
 
 //define a renderCards function 
@@ -148,11 +193,11 @@ function render(){
 
 
 
-// 1. display start game screen img and start game button
+// display start game screen img and start game button
 // get all the card flip buttons
 // get win message div
 // get game-over screen display div
-// 2. start game with all cards facing down/blacked out,
+// start game with all cards facing down/blacked out,
 // and game screen background displayed
 // attach click event for each card
 // console.log(countmatches);

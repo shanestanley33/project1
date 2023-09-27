@@ -16,7 +16,6 @@ body {
     background-size: cover;
     font-family: "Open Sans", sans-serif;
     /*one Em roughly ten pixels (16 x 62.5% = 10)*/
-    font-size: 70.5%;
     letter-spacing: 1.5px;
     margin: 0;
     text-align: center;
@@ -38,13 +37,15 @@ body {
   };
 
   .grid-wrapper {
-    display: grid | inline-grid;
+
+    display: grid;
     grid-template-columns: repeat(4, 100px);
     grid-gap: 1em;
   };
   
-  .grid-item {
-    background-color: white;
+  .grid-item{
+    font-size: 200px;
+    background-color: rgb(240, 234, 234);
     padding: 10px;
     height: 50px;
     width: 50px;
