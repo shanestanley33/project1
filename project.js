@@ -4,24 +4,22 @@ const allCards = [
    {'name': 'K'},
    {'name': 'Fe'},
    {'name': 'Fe'},
-// 'Fe',
-// 'Iron',
-// 'Na',
-// 'Sodium',
-// 'W',
-// 'Tungsten',
-// 'Cu',
-// 'Copper',
-// 'Ag',
-// 'Silver',
-// 'Au',
-// 'Gold',
-// 'Hg',
-// 'Mercury',
-// 'Sn',
-// 'Tin',
-// 'Pb',
-// 'Lead',
+   {'name': 'Na'},
+   {'name': 'Na'},
+   {'name': 'W'},
+   {'name': 'W'},
+   {'name': 'Cu'},
+   {'name': 'Cu'},
+   {'name': 'Ag'},
+   {'name': 'Ag'},
+   {'name': 'Au'},
+   {'name': 'Au'},
+   {'name': 'Hg'},
+   {'name': 'Hg'},
+   {'name': 'Sn'},
+   {'name': 'Sn'},
+   {'name': 'Pb'},
+   {'name': 'Pb'},
 ]
 
 // state variables and constants
@@ -54,8 +52,8 @@ gameBoard.addEventListener("click", handleCardClick);
 
 // clicking a card
 function handleCardClick(event){
-   console.log(event.target)
    if (event.target.classList.contains('clicked')) {
+      
       return
    }
    cardsFlipped.push(event.target)
@@ -69,12 +67,9 @@ function checkmatched() {
    if (cardsFlipped[0].innerText === cardsFlipped[1].innerText) {
       score++;
       cardsFlipped.forEach(card => {
-      console.log(card)
       card.style.backgroundColor = 'green';
       });
-      console.log('its a match')
    } else {
-   console.log('no match')
    }
    let clickedEls = document.querySelectorAll('.clicked')
    clickedEls.forEach(el => {
@@ -82,7 +77,6 @@ function checkmatched() {
    })
    cardsFlipped = []
    render()
-   console.log('next move')
 }
 
 //check for win
@@ -133,7 +127,6 @@ function shuffleArray(array) {
 
 //define render function
 function render(){
-   console.log("innerText")   
    scoreDisplay.innerText = `Score: ${score}`; 
 };
 
@@ -148,21 +141,6 @@ function render(){
 //      }
 //    })
 // };
-
-
-
-
-function resetEverything() {
-  
-   // Reset moves count and reset its inner HTML
-   moves = 0;
-   movesCount.innerHTML = 0;
-   // Clear both arrays that hold the flipped and matched cards
-   cardsMatched = [];
-   cardsFlipped = [];
-   // Clear the deck
-   removeCard();
-}
 
 // start game with all cards facing down/blacked out,
 //(do this last) start timer on first card click

@@ -37,7 +37,7 @@ body {
   grid-row-gap: 15px;
   };
   
-  .grid-item{
+   grid-item {
     font-size: 200px;
     background-color: rgb(240, 234, 234);
     padding: 10px;
