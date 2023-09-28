@@ -28,19 +28,14 @@ const WINNING_SCORE = allCards.length / 2;
 const START_BUTTON_ID = "start-button";
 const GAME_BOARD_ID = "game-board";
 const SCORE_DISPLAY_ID = "score";
-// const RESTART_BUTTON_ID = "restart";
 let score;
 let cardsFlipped;
 let cardsMatched;
-let countdown;
 
 // Cached Elements
 
-//get start button by id and assign to a variable called startButton
 const startButton = document.getElementById(START_BUTTON_ID);
-//get game board by id and assign to a variable called gameBoard
 const gameBoard = document.getElementById(GAME_BOARD_ID);
-//get the score by id and (You need to make a div with id of score)
 const scoreDisplay = document.getElementById(SCORE_DISPLAY_ID);
 const winDisplay = document.getElementById('win-game')
 
@@ -112,10 +107,6 @@ function renderCards() {
    })
 }
 
-
-
-// Invoke shuffle function and store in variable
-// Randomize array in-place using Durstenfeld shuffle algorithm
 function shuffleArray(array) {
    for (let i = array.length - 1; i > 0; i--) {
        let j = Math.floor(Math.random() * (i + 1));
@@ -124,26 +115,7 @@ function shuffleArray(array) {
        array[j] = temp;
    }
 }
-
 //define render function
 function render(){
    scoreDisplay.innerText = `Score: ${score}`; 
 };
-
-
-// function timer() {
-//    // Update the count every 1 second
-//    time = setInterval(function () {
-//      seconds--;
-//      if (seconds === 0) {
-//        //game over display;
-//        seconds = 250;
-//      }
-//    })
-// };
-
-// start game with all cards facing down/blacked out,
-//(do this last) start timer on first card click
-// make sure cards dissappear when correctly matched
-// else if timer runs out first, display game over div
-// and display replay or retry prompt and 'thanks for playing' on screen
