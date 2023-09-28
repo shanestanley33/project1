@@ -29,15 +29,14 @@ body {
   };
 
   #game-board {
-
-    display: grid;
-    grid-template-columns: repeat(1fr 1fr);
-  grid-template-rows: repeat(1fr 1fr);
-  grid-column-gap: 15px;
-  grid-row-gap: 15px;
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   grid-template-rows: repeat(5, 1fr);
+   grid-column-gap: 15px;
+   grid-row-gap: 15px;
   };
   
-   grid-item {
+   .grid-item {
     font-size: 200px;
     background-color: rgb(240, 234, 234);
     padding: 10px;

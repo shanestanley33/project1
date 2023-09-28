@@ -53,14 +53,13 @@ gameBoard.addEventListener("click", handleCardClick);
 // clicking a card
 function handleCardClick(event){
    if (event.target.classList.contains('clicked')) {
-      
       return
    }
+   event.target.classList.add('clicked')
    cardsFlipped.push(event.target)
    if (cardsFlipped.length === 2){
        checkmatched();
    }
-   event.target.classList.add('clicked')
    checkWinner();
 }
 function checkmatched() {
@@ -108,6 +107,7 @@ function renderCards() {
    allCards.forEach(card => {
    let cardEl = document.createElement('div')
    cardEl.innerText = card.name
+   cardEl.classList.add('grid-item')
    gameBoard.append(cardEl)
    })
 }
