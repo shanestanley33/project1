@@ -1,13 +1,6 @@
-/* Header */
-/* Score Panel */
 /* @media screen and (min-width) */
 /* seperate game container, title container, score and timer container */
 /* highlight and un-highlight cards that are in use */
-/* style retry button */
-/* style start button */
-/* game background */
-/* starting background */
-/* card transitions */
 
 /* body */
 body {
@@ -15,7 +8,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     font-family: "Open Sans", sans-serif;
-    /*one Em roughly ten pixels (16 x 62.5% = 10)*/
     letter-spacing: 1.5px;
     margin: 0;
     text-align: center;
@@ -53,8 +45,6 @@ body {
     width: 50px;
     border-radius: 10px;
   }
- 
-
   /* @media screen and (min-width: 550px) {
     body {
 
