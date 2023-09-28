@@ -1,17 +1,9 @@
 //const all cards even if you only use 2 or 4 of them at first
 const allCards = [
-   {
-   'name': 'K', clickable: true
-   },
-   {
-   'name': 'K'
-   },
-  {
-   'name': 'Fe'
-  },
-  {
-   'name': 'Fe'
-  },
+   {'name': 'K'},
+   {'name': 'K'},
+   {'name': 'Fe'},
+   {'name': 'Fe'},
 // 'Fe',
 // 'Iron',
 // 'Na',
@@ -93,7 +85,10 @@ function checkmatched() {
    } else {
    console.log('no match')
    }
-
+   let clickedEls = document.querySelectorAll('.clicked')
+   clickedEls.forEach(el => {
+      el.classList.remove('clicked')
+   })
    cardsFlipped = []
    render()
    console.log('next move')
@@ -108,19 +103,6 @@ function checkWinner() {
       startButton.disabled = false; 
    }
 }
-
-// clicking restart/retry/replay
-// function restartScreen() {
-//    score = INITIAL_SCORE;
-// cardsFlipped = [];
-// startButton.disabled = false; 
-// startButton.style.display = "none"
-// gameBoard.innerHTML = ""
-// //render cards
-// renderCards();
-// //call a render function
-// render();
-// }
 
 // Functions
 //define initialize function 
@@ -138,8 +120,8 @@ render();
 
 function renderCards() {
    allCards.forEach(card => {
-      let cardEl = document.createElement('div')
-      cardEl.innerText = card.name
+   let cardEl = document.createElement('div')
+   cardEl.innerText = card.name
    gameBoard.append(cardEl)
    })
 }
