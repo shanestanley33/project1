@@ -1,7 +1,7 @@
 //const all cards even if you only use 2 or 4 of them at first
 const allCards = [
    {
-   'name': 'K'
+   'name': 'K', clickable: true
    },
    {
    'name': 'K'
@@ -38,6 +38,7 @@ const WINNING_SCORE = allCards.length / 2;
 const START_BUTTON_ID = "start-button";
 const GAME_BOARD_ID = "game-board";
 const SCORE_DISPLAY_ID = "score";
+// const RESTART_BUTTON_ID = "restart";
 let score;
 let cardsFlipped;
 let cardsMatched;
@@ -50,32 +51,42 @@ const startButton = document.getElementById(START_BUTTON_ID);
 const gameBoard = document.getElementById(GAME_BOARD_ID);
 //get the score by id and (You need to make a div with id of score)
 //const scoreDisplay = document.getElementById(SCORE_DISPLAY_ID);
-
+const scoreDisplay = document.getElementById(SCORE_DISPLAY_ID);
+const winDisplay = document.getElementById('win-game')
+// const restartButton = document.getElementById(RESTART_BUTTON_ID);
 
 //Event Listeners
 //attach click event listener to startButton and called initialize function 
 startButton.addEventListener("click", initializeGame);
-gameBoard.addEventListener('click', handleCardClick)
+gameBoard.addEventListener("click", handleCardClick);
+// restartButton.addEventListener("click", restartScreen);
+
 //console.log(K)
 
 // clicking a card
 function handleCardClick(event){
+   console.log(event.target)
+  
+   if (event.target.classList.contains('clicked')) {
+      return
+   }
    cardsFlipped.push(event.target)
-   console.log(cardsFlipped[0].innerText)
+   
    if (cardsFlipped.length === 2){
        checkmatched();
-      
    }
+   event.target.classList.add('clicked')   
+
    checkWinner();
 }
 
 function checkmatched() {
    if (cardsFlipped[0].innerText === cardsFlipped[1].innerText) {
    // cardsMatched++;
-      score++
+      score++;
       cardsFlipped.forEach(card => {
          console.log(card)
-         card.style.backgroundColor = 'red';
+         card.style.backgroundColor = 'green';
       });
       console.log('its a match')
       //disable those card from being used again?
@@ -84,20 +95,32 @@ function checkmatched() {
    }
 
    cardsFlipped = []
-
+   render()
    console.log('next move')
 }
 
 //check for win
 function checkWinner() {
    if (score === WINNING_SCORE) {
-      alert("you have won the game")
-
+      winDisplay.innerText = 'you win'
+      startButton.innerText = 'restart'
+      startButton.style.display = "inline" 
+      startButton.disabled = false; 
    }
 }
 
 // clicking restart/retry/replay
-
+// function restartScreen() {
+//    score = INITIAL_SCORE;
+// cardsFlipped = [];
+// startButton.disabled = false; 
+// startButton.style.display = "none"
+// gameBoard.innerHTML = ""
+// //render cards
+// renderCards();
+// //call a render function
+// render();
+// }
 
 // Functions
 //define initialize function 
@@ -136,12 +159,14 @@ function shuffleArray(array) {
 
 //define render function
 function render(){
-   console.log("I'm in the render function")
+   console.log("innerText")
    // Set the score display to the current score
    
-   //scoreDisplay.innerText = `Score: ${score}`; 
+   scoreDisplay.innerText = `Score: ${score}`; 
+
    // Create card 
-   ////createCards();
+
+   //createCards();
 };
 
 

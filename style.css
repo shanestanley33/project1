@@ -36,11 +36,13 @@ body {
     text-align: center;
   };
 
-  .grid-wrapper {
+  #game-board {
 
     display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-gap: 1em;
+    grid-template-columns: repeat(1fr 1fr);
+  grid-template-rows: repeat(1fr 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
   };
   
   .grid-item{
