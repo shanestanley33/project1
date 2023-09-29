@@ -19,3 +19,5 @@
 2. @media screen and (min-width) for different screen sizes
 3. add a countdown timer and game-over if time runs out
 4. add a pause/stop music button
+5. black out or flip cards face down
+6. .add all other 'table of elements' cards, for higher difficulty levels
