@@ -8,6 +8,8 @@
 ## 📷 Screenshots.
 <p align= "center"><img src="/Users/shanestanley/code/school_projects/project1/readme/Screenshot 2023-09-28 at 4.04.40 PM.png"></p>
 
+![ScreenShot](/Users/shanestanley/code/school_projects/project1/readme/Screenshot 2023-09-28 at 4.04.40 PM.png)
+
 ## 🔈 Languages Used.
 <img align="center" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="CSS" height="50" width="67"/><img align="center" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="HTML" height="50" width="67"/><img align="center" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="CSS" height="50" width="67"/>
 
