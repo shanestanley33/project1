@@ -6,9 +6,8 @@
 **You are provided with a set of cards with images on their faces. At the start of the game, the cards are turned face down. Click on a card and it will turn over to reveal the image. Find two cards with the same image to make a match. Once you have found all of the matches, you win the game!**
 
 ## 📷 Screenshots.
-<p align= "center"><img src="/Users/shanestanley/code/school_projects/project1/readme/Screenshot 2023-09-28 at 4.04.40 PM.png"></p>
+![Screenshot 2023-09-28 at 4 04 40 PM](https://github.com/shanestanley33/project1/assets/19402451/451f6bf8-f449-435a-b146-e1065ac2d68b)
 
-![ScreenShot](/Users/shanestanley/code/school_projects/project1/readme/Screenshot 2023-09-28 at 4.04.40 PM.png)
 
 ## 🔈 Languages Used.
 <img align="center" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="CSS" height="50" width="67"/><img align="center" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="HTML" height="50" width="67"/><img align="center" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="CSS" height="50" width="67"/>
